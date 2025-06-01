@@ -27,6 +27,9 @@ public class ProductMedia implements Serializable {
 
     private Long fileSize;
 
+    @ManyToOne()
+    private Product product;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;

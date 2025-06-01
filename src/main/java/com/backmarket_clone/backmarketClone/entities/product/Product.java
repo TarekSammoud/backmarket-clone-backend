@@ -1,10 +1,13 @@
 package com.backmarket_clone.backmarketClone.entities.product;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,7 +31,8 @@ public class Product implements Serializable {
     @ManyToOne
     ProductCategory category;
 
-    @OneToMany
+    @OneToMany(mappedBy = "product")
+    @Cascade(CascadeType.PERSIST)
     List<ProductMedia> mediaList;
 
     @CreationTimestamp

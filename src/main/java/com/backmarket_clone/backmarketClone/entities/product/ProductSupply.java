@@ -2,9 +2,12 @@ package com.backmarket_clone.backmarketClone.entities.product;
 
 import com.backmarket_clone.backmarketClone.entities.user.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -42,8 +45,13 @@ public class ProductSupply implements Serializable {
 
     private boolean isAvailable = true;
 
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date addedAt = new java.util.Date();
+    private Date createdAt;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
     public Long getId() {
         return id;
@@ -117,11 +125,20 @@ public class ProductSupply implements Serializable {
         isAvailable = available;
     }
 
-    public Date getAddedAt() {
-        return addedAt;
+
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setAddedAt(Date addedAt) {
-        this.addedAt = addedAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

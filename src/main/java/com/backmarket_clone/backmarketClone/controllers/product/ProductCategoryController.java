@@ -1,6 +1,6 @@
 package com.backmarket_clone.backmarketClone.controllers.product;
 
-import com.backmarket_clone.backmarketClone.entities.product.ProductCategory;
+import com.backmarket_clone.backmarketClone.dtos.product.ProductCategoryDTO;
 import com.backmarket_clone.backmarketClone.services.interfaces.product.IProductCategoryService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,25 +16,25 @@ public class ProductCategoryController {
     IProductCategoryService productCategoryService;
 
     @PostMapping("/add")
-    ProductCategory addProductCategory(@RequestBody ProductCategory productCategory)
+    ProductCategoryDTO addProductCategory(@RequestBody ProductCategoryDTO productCategory)
     {
        return productCategoryService.addProductCategory(productCategory);
     }
 
     @PutMapping("/update")
-    ProductCategory updateProductCategory(@RequestBody ProductCategory productCategory)
+    ProductCategoryDTO updateProductCategory(@RequestBody ProductCategoryDTO productCategory)
     {
         return productCategoryService.updateProductCategory(productCategory);
     }
 
     @GetMapping("/all")
-    List<ProductCategory> getAllProductCategories()
+    List<ProductCategoryDTO> getAllProductCategories()
     {
         return productCategoryService.getAllProductCategories();
     }
 
     @GetMapping("/{id}")
-    ProductCategory getProductCategoryById(@PathVariable("id") Long id)
+    ProductCategoryDTO getProductCategoryById(@PathVariable("id") Long id)
     {
         return productCategoryService.getProductCategoryById(id);
     }

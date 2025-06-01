@@ -1,5 +1,6 @@
 package com.backmarket_clone.backmarketClone.controllers.product;
 
+import com.backmarket_clone.backmarketClone.dtos.product.ProductMediaDTO;
 import com.backmarket_clone.backmarketClone.entities.product.ProductMedia;
 import com.backmarket_clone.backmarketClone.services.interfaces.product.IProductMediaService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,25 +19,25 @@ public class ProductMediaController {
 
 
     @PostMapping("/add")
-    ProductMedia addProductMedia(@RequestBody ProductMedia product)
+    ProductMediaDTO addProductMedia(@RequestBody ProductMediaDTO product)
     {
         return productMediaService.addProductMedia(product);
     }
 
     @PutMapping("/update")
-    ProductMedia updateProductMedia(@RequestBody ProductMedia product)
+    ProductMediaDTO updateProductMedia(@RequestBody ProductMediaDTO product)
     {
         return productMediaService.updateProductMedia(product);
     }
 
     @GetMapping("/all")
-    List<ProductMedia> getAllProductMedias()
+    List<ProductMediaDTO> getAllProductMedias()
     {
         return productMediaService.getAllProductMedias();
     }
 
     @GetMapping("/{id}")
-    ProductMedia getProductMediaById(@PathVariable("id") Long id)
+    ProductMediaDTO getProductMediaById(@PathVariable("id") Long id)
     {
         return productMediaService.getProductMediaById(id);
     }

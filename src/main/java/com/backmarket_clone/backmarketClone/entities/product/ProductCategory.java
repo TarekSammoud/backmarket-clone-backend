@@ -1,6 +1,8 @@
 package com.backmarket_clone.backmarketClone.entities.product;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,7 +28,6 @@ public class ProductCategory implements Serializable {
     private String description;
 
     @OneToMany(mappedBy = "category")
-    @JsonBackReference
     private List<Product> product;
 
     @CreationTimestamp

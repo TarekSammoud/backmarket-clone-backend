@@ -1,15 +1,15 @@
 package com.backmarket_clone.backmarketClone.services.interfaces.product;
 
-import com.backmarket_clone.backmarketClone.entities.product.ProductCategory;
+import com.backmarket_clone.backmarketClone.dtos.product.ProductCategoryDTO;
 
 import java.util.List;
 
 public interface IProductCategoryService {
-    ProductCategory addProductCategory(ProductCategory productCategory);
-    ProductCategory updateProductCategory(ProductCategory productCategory);
+    public ProductCategoryDTO addProductCategory(ProductCategoryDTO dto) ;
+    ProductCategoryDTO updateProductCategory(ProductCategoryDTO dto);
     void deleteProductCategory(Long id);
-    List<ProductCategory> getAllProductCategories();
-    ProductCategory getProductCategoryById(Long id);
+    List<ProductCategoryDTO> getAllProductCategories();
+    ProductCategoryDTO getProductCategoryById(Long id);
 
 
 }
